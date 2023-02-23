@@ -6,15 +6,16 @@
         <tr>
             <td>Id</td>
             <td>Araba Adı</td>
-            <td>Marka Adı</td>
+            <td>Marka</td>
             <td>Modeli</td>
-
+            <td>Renk</td>
         </tr>
     </thead>
     <tr *ngFor="let car of cars">
         <td>{{car.carId}}</td>
         <td>{{car.carName}}</td>
-        <td>{{car.brandName}}</td>
+        <td>{{car.brandId}}</td>
         <td>{{car.modelYear}}</td>
+        <td>{{car.colorName}}</td>
     </tr>
 </table>

@@ -13,6 +13,7 @@ export class BrandComponent implements OnInit {
   apiUrl = "https://localhost:44386/api/brands/getall";
   dataLoaded=false;
 
+
  constructor(private brandService:BrandService) {}
 
  ngOnInit(): void {
@@ -34,6 +35,23 @@ export class BrandComponent implements OnInit {
     return "list-group-item active"
   }else{
     return "list-group-item"
+  }
+ }
+
+ getAllBrandClass(){
+  if(!this.currentBrand){
+    return "list-group-item active"
+  }else{
+    return "list-group-item"
+  }
+ }
+
+ clearCurrentBrand(brand:Brand){
+  if(brand!=this.currentBrand){
+    return "list-group-item active"
+    
+  }else{
+    return "list-group-item "
   }
  }
 }
