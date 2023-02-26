@@ -20,23 +20,23 @@ dataLoaded=false;
 
  ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-    if(params["brandId"]){
+    if(params["brandId"])
+    {
       this.getCarsByBrand(params["brandId"])
-    }else{
+    }
+    else if(params["colorName"])
+    {
+      this.getCarsByColor(params["colorName"])
+    }
+    else
+    {
       this.getCars()
     }
-
-  if(params["colorName"]){
-    this.getCarsByColor(params["colorName"])
-  }else{
-    this.getCars()
-  }
 })
  }
 
-
  getCars() {
-this.carService.getCars().subscribe(response=>{
+  this.carService.getCars().subscribe(response=>{
   this.cars=response.data
   this.dataLoaded=true
 });

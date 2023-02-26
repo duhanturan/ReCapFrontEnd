@@ -9,7 +9,7 @@ import { BrandService } from 'src/app/services/brand.service';
 })
 export class BrandComponent implements OnInit {
   brands : Brand[] = [];
-  currentBrand:Brand;
+  currentBrand:Brand | null;
   apiUrl = "https://localhost:44386/api/brands/getall";
   dataLoaded=false;
 
@@ -36,7 +36,7 @@ export class BrandComponent implements OnInit {
   }else{
     return "list-group-item"
   }
- }
+ } 
 
  getAllBrandClass(){
   if(!this.currentBrand){
@@ -46,12 +46,7 @@ export class BrandComponent implements OnInit {
   }
  }
 
- clearCurrentBrand(brand:Brand){
-  if(brand!=this.currentBrand){
-    return "list-group-item active"
-    
-  }else{
-    return "list-group-item "
-  }
- }
+ reset(){
+  this.currentBrand = null;
+}
 }

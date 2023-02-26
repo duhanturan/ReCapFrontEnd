@@ -1,6 +1,9 @@
-<ul class="list-group">
-    <li class="list-group-item text-center bg-dark text-white">Renkler</li>
+<ul class="list-group list-group-horizontal-md">
+    <li class="list-group-item col-md-1 text-center text-white bg-dark" (click) = "reset()" 
+    routerLink="/cars"
+    [class]="getAllColorClass()">Renkler</li>
     <li *ngFor="let color of colors" 
+    class="col-md-1 text-truncate"
         routerLink="/cars/color/{{color.colorName}}"
         (click)="setCurrentColor(color)"
         [class]="getCurrentColorClass(color)">

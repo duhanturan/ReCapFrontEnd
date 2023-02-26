@@ -9,7 +9,7 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class ColorComponent {
 colors:Color[]=[];
-currentColor:Color;
+currentColor:Color | null;
 apiUrl = "https://localhost:44386/api/colors/getall";
 dataLoaded=false;
 
@@ -29,6 +29,18 @@ constructor(private colorService:ColorService) {}
  setCurrentColor(color:Color){
   this.currentColor=color;
  }
+
+ getAllColorClass(){
+  if(!this.currentColor){
+    return "list-group-item active"
+  }else{
+    return "list-group-item"
+  }
+ }
+
+ reset(){
+  this.currentColor = null;
+}
 
  getCurrentColorClass(color:Color){
   if(color==this.currentColor){
